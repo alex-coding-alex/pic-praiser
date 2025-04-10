@@ -2,6 +2,7 @@
 @import '../../vendor/livewire/flux/dist/flux.css';
 
 @plugin "daisyui";
+@plugin "@tailwindcss/typography";
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -66,7 +67,6 @@ select:focus[data-flux-control] {
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */
-
 
 
 /**
