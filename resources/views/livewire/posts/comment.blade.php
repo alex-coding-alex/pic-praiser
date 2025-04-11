@@ -14,7 +14,19 @@
         <x-mary-button label="Login to Comment" link="{{ route('login') }}"/>
     @endif
 
-    @foreach ($this->postComments as $comment)
-        <p>{{ $comment->comment }}</p>
-    @endforeach
+    <div class="my-8 py-6 px-4 bg-neutral-content/10 rounded-lg shadow-lg">
+        @foreach ($this->postComments as $comment)
+            <div
+                class="pb-2 {{ $comment->user_id === \Illuminate\Support\Facades\Auth::user()->id ? 'chat chat-end' : 'chat chat-start' }}">
+                <div class="chat-header">
+                    {{ $comment->user->name }}
+                    <time
+                        class="text-xs opacity-50">{{ ceil(\Illuminate\Support\Carbon::create($comment->created_at)->diffInHours(\Illuminate\Support\Carbon::now())) }}
+                        hours ago
+                    </time>
+                </div>
+                <div class="chat-bubble">{{ $comment->comment }}</div>
+            </div>
+        @endforeach
+    </div>
 </section>
