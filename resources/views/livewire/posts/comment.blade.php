@@ -15,6 +15,6 @@
     @endif
 
     @foreach ($this->postComments as $comment)
-        {{ $comment->comment }}
+        <p>{{ $comment->comment }}</p>
     @endforeach
 </section>

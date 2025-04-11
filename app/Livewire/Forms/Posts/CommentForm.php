@@ -13,17 +13,17 @@ class CommentForm extends Form
     #[Validate(['required', 'string', 'max:1000'])]
     public $comment = '';
 
-    #[Validate(['required', 'exists:users'])]
-    public $user_id = '';
-
     public function store(Post $post): Comment
     {
         $this->validate();
 
-        return Comment::create([
+        $comment = Comment::create([
             ...$this->all(),
             'user_id' => Auth::user()->id,
             'post_id' => $post->id,
         ]);
+        $this->reset('comment');
+
+        return $comment;
     }
 }
