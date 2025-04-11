@@ -24,6 +24,7 @@ class PostForm extends Form
             'user_id' => Auth::user()->id,
         ]);
         $post->addMedia($this->image->getRealPath())->toMediaCollection(Post::IMAGE_COLLECTION);
+        $post->save();
 
         return $post;
     }
