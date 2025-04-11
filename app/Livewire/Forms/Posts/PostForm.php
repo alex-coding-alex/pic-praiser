@@ -19,9 +19,12 @@ class PostForm extends Form
     {
         $this->validate();
 
-        Post::create([
+        $post = Post::create([
             ...$this->all(),
             'user_id' => Auth::user()->id,
-        ])->addMedia($this->image->getRealPath())->toMediaCollection(Post::IMAGE_COLLECTION);
+        ]);
+        $post->addMedia($this->image->getRealPath())->toMediaCollection(Post::IMAGE_COLLECTION);
+
+        return $post;
     }
 }

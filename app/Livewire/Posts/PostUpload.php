@@ -16,9 +16,9 @@ class PostUpload extends Component
 
     public function save()
     {
-        $this->form->store();
+        $post = $this->form->store();
 
-        $this->redirectRoute('base');
+        $this->redirectRoute('posts.view', $post);
     }
 
     public function render()
