@@ -10,7 +10,10 @@ use Livewire\Form;
 class PostForm extends Form
 {
     #[Validate(['required', 'string'])]
-    public $name = '';
+    public string $name = '';
+
+    #[Validate(['image'])]
+    public $image;
 
     public function store()
     {
@@ -19,6 +22,6 @@ class PostForm extends Form
         Post::create([
             ...$this->all(),
             'user_id' => Auth::user()->id,
-        ]);
+        ])->addMedia($this->image->getRealPath())->toMediaCollection('images');
     }
 }
