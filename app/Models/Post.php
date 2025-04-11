@@ -13,6 +13,8 @@ class Post extends Model implements HasMedia
 {
     use HasFactory, HasUuids, InteractsWithMedia;
 
+    const IMAGE_COLLECTION = 'images';
+
     protected $fillable = [
         'name',
         'user_id',

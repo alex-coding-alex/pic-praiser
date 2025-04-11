@@ -22,6 +22,6 @@ class PostForm extends Form
         Post::create([
             ...$this->all(),
             'user_id' => Auth::user()->id,
-        ])->addMedia($this->image->getRealPath())->toMediaCollection('images');
+        ])->addMedia($this->image->getRealPath())->toMediaCollection(Post::IMAGE_COLLECTION);
     }
 }
