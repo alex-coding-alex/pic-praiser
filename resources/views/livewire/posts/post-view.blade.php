@@ -19,7 +19,5 @@
         <p class="text-error">No Image Found. Something went wrong</p>
     @endif
 
-    <section>
-        <h2>Comments</h2>
-    </section>
+    <livewire:posts.comment :post="$post"/>
 </section>
