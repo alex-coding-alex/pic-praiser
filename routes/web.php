@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Frontpage\Base;
+use App\Livewire\Posts\PostUpload;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -11,6 +12,10 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/base', Base::class)->name('base');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/posts/create', PostUpload::class)->name('posts.create');
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

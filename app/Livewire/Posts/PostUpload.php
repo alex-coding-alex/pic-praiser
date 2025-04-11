@@ -15,7 +15,7 @@ class PostUpload extends Component
     {
         $this->form->store();
 
-        return $this->redirectRoute('base');
+        $this->redirectRoute('base');
     }
 
     public function render()
