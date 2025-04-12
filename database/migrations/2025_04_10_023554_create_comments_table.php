@@ -12,7 +12,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->text('comment');
             $table->foreignUuid('user_id')->constrained('users');
-            $table->foreignUuid('post_id')->constrained('posts');
+            $table->foreignUuid('post_id')->constrained('posts')->cascadeOnDelete();
             $table->timestamps();
         });
     }

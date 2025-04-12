@@ -11,7 +11,7 @@ use Livewire\Component;
 class Base extends Component
 {
     #[Computed]
-    public function randPost(): Post
+    public function randPost(): ?Post
     {
         // Get a random post to show
         return Post::inRandomOrder()->first();
