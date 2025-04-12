@@ -8,11 +8,7 @@ use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
-Route::get('/base', Base::class)->name('base');
+Route::get('/', Base::class)->name('home');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/posts/create', PostUpload::class)->name('posts.create');
